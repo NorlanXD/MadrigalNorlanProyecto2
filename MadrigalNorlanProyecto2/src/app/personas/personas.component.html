@@ -1,18 +1,13 @@
-
 <div class="container">
-  <legend>Proyectos</legend>
+  <legend>Personas</legend>
   <br>
   <div class="form-inline">
       <label>Id:</label>
-      <input class="form-control" type="text" placeholder="Codigo id Ej: pro-011" [(ngModel)]="variableProyecto.id">
+      <input class="form-control" type="text" placeholder="Codigo id Ej: pro-011" [(ngModel)]="variablePersonas.id">
       <label>Nombre:</label>
-      <input class="form-control" type="text" placeholder="Nombre del proyecto" [(ngModel)]="variableProyecto.nombre">
-      <label>Icono:</label>
-      <input class="form-control" type="text" placeholder="url del icono" [(ngModel)]="variableProyecto.icono">
-      <label>Fecha de Inicio:</label>
-      <input class="form-control" type="text" placeholder="dd/mm/aaaa" [(ngModel)]="variableProyecto.fechaInicio">
-      <label>Numero de Personas Asociadas:</label>
-      <input class="form-control" type="number" placeholder="cantidad de personas" [(ngModel)]="variableProyecto.numeroPersonasAsociadas">
+      <input class="form-control" type="text" placeholder="Nombre del proyecto" [(ngModel)]="variablePersonas.nombre">
+      <label>Avatar:</label>
+      <input class="form-control" type="text" placeholder="url del icono" [(ngModel)]="variablePersonas.avatar">
       <br>
       <br>
       <button class="btn btn-primary"(click)="guardar()">Guardar</button>
@@ -23,19 +18,15 @@
       <tr>
         <th>Id</th>
         <th>Nombre</th>
-        <th>Icono</th>
-        <th>Fecha de Inicio</th>
-        <th>Numero de Personas Asociadas</th>
+        <th>Avatar</th>
         <th class="text-right">
         <button class="btn btn-success" (click)="nuevo()">Nuevo</button>
       </th>
       </tr>
-      <tr *ngFor="let row of listaproyectos">
+      <tr *ngFor="let row of listapersonas">
         <td>{{row.id}}</td>
         <td>{{row.nombre}}</td>
-        <td>{{row.icono}}</td>
-        <td>{{row.fechaInicio}}</td>
-        <td><img src="{{row.fechaInicio}}" alt=""></td>
+        <td>{{row.avatar}}</td>
         <td class="text-right">
           <div *ngIf="!row.confirm">
             <button class="btn btn-warning" (click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -47,7 +38,7 @@
           </div>
         </td>
       </tr>
-      <tr *ngIf="listaproyectos.length == 0">
+      <tr *ngIf="listapersonas.length == 0">
         <td colspan="4" class="text-center">No hay datos en la tabla</td>
       </tr>
 

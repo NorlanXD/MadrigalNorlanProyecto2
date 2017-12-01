@@ -4,11 +4,13 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { ProyectosCrudComponent } from './proyectos-crud/proyectos-crud.component';
+import { PersonasComponent } from './personas/personas.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ProyectosCrudComponent
+    ProyectosCrudComponent,
+    PersonasComponent
   ],
   imports: [
     BrowserModule,

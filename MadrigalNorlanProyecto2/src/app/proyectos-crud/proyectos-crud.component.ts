@@ -19,8 +19,7 @@ export class ProyectosCrudComponent implements OnInit {
 
   nuevo() {
     this.variableProyecto = new Proyectos();
-    this.mostrarManteProyectos.is_visible = true;
-    this.mostrarManteProyectos.is_new = true;
+
   }
 
   guardar() {
