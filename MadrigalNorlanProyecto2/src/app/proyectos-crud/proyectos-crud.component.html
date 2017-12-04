@@ -1,8 +1,7 @@
 
 <div class="container">
   <legend>Proyectos</legend>
-  <br>
-  <div class="form-inline">
+  <div class="form-inline" *ngIf="mostrarManteProyectos.is_visible">
       <label>Id:</label>
       <input class="form-control" type="text" placeholder="Codigo id Ej: pro-011" [(ngModel)]="variableProyecto.id">
       <label>Nombre:</label>
@@ -38,12 +37,15 @@
         <td><img src="{{row.fechaInicio}}" alt=""></td>
         <td class="text-right">
           <div *ngIf="!row.confirm">
-            <button class="btn btn-warning" (click)="edit(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
+            <button class="btn btn-warning" (click)="editar(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
             <button class="btn btn-danger" (click)="row.confirm = true"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <a class="btn btn-info" [routerLink]="['/proyectos/', row.name]">
+              <i class="fa fa-eye" aria-hidden="true"></i>
+            </a>
           </div>
           <div *ngIf="row.confirm">
-            <button class="btn btn-danger" (click)="row.confirm = false">Cancel</button>
-            <button class="btn btn-success" (click)="delete(row)">Confirm</button>
+            <button class="btn btn-danger" (click)="row.confirm = false">Cancelar</button>
+            <button class="btn btn-success" (click)="eliminar(row)">Confirmar</button>
           </div>
         </td>
       </tr>

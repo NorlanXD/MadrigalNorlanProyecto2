@@ -1,13 +1,13 @@
 <div class="container">
-  <legend>Personas</legend>
+  <legend>Estados</legend>
   <br>
-  <div class="form-inline" *ngIf="mostrarMantePersonas.is_visible">
+  <div class="form-inline" *ngIf="mostrarManteEstado.is_visible">
       <label>Id:</label>
-      <input class="form-control" type="text" placeholder="Codigo id Ej: pro-011" [(ngModel)]="variablePersonas.id">
+      <input class="form-control" type="text" placeholder="Codigo id Ej: pro-011" [(ngModel)]="variableEstado.id">
       <label>Nombre:</label>
-      <input class="form-control" type="text" placeholder="Nombre del proyecto" [(ngModel)]="variablePersonas.nombre">
+      <input class="form-control" type="text" placeholder="descripcion del estado" [(ngModel)]="variableEstado.descripcion">
       <label>Avatar:</label>
-      <input class="form-control" type="text" placeholder="url del icono" [(ngModel)]="variablePersonas.avatar">
+      <input class="form-control" type="text" placeholder="orden" [(ngModel)]="variableEstado.orden">
       <br>
       <br>
       <button class="btn btn-primary"(click)="guardar()">Guardar</button>
@@ -17,16 +17,16 @@
     <table class="table table-striped table-hover">
       <tr>
         <th>Id</th>
-        <th>Nombre</th>
-        <th>Avatar</th>
+        <th>Descripcion</th>
+        <th>Orden</th>
         <th class="text-right">
         <button class="btn btn-success" (click)="nuevo()">Nuevo</button>
       </th>
       </tr>
-      <tr *ngFor="let row of listapersonas">
+      <tr *ngFor="let row of listaEstados">
         <td>{{row.id}}</td>
-        <td>{{row.nombre}}</td>
-        <td>{{row.avatar}}</td>
+        <td>{{row.descripcion}}</td>
+        <td>{{row.orden}}</td>
         <td class="text-right">
           <div *ngIf="!row.confirm">
             <button class="btn btn-warning" (click)="editar(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
@@ -38,7 +38,7 @@
           </div>
         </td>
       </tr>
-      <tr *ngIf="listapersonas.length == 0">
+      <tr *ngIf="listaEstados.length == 0">
         <td colspan="4" class="text-center">No hay datos en la tabla</td>
       </tr>
 
