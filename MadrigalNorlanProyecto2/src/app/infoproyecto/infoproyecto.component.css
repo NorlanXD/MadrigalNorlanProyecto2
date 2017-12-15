@@ -1,0 +1,15 @@
+.contenedorTareas {
+  background-color: #FFE600;
+  width: 25%;
+  height: auto;
+  float: left;
+  margin: 12px;
+}
+
+.contenedorTareasdescipcion {
+  background-color: #FFFF57;
+  width: 100%;
+  height: 50px;
+  margin-bottom: 12px;
+  cursor: move;
+}

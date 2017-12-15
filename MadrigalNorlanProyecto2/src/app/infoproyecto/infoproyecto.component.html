@@ -26,3 +26,38 @@
     </table>
   </div>
 </div>
+<legend>Nueva Tarea:</legend>
+<button class="btn btn-success" (click)="nuevotarea()">Nuevo</button>
+<div class="panel panel-default">
+  <div class="form-inline" *ngIf="mostrarnuevatarea.is_visible">
+      <label>Id de tarea:</label>
+      <input class="form-control" type="text" placeholder="Codigo id Ej: pro-011" [(ngModel)]="variableTareas.id">
+      <label>Nombre de tarea:</label>
+      <input class="form-control" type="text" placeholder="Codigo id Ej: pro-011" [(ngModel)]="variableTareas.nombre">
+      <label>Descipcion de tarea:</label>
+      <input class="form-control" type="text" placeholder="Codigo id Ej: pro-011" [(ngModel)]="variableTareas.descripcion">
+      <button class="btn btn-primary" (click)="guardartarea()">Guardar</button>
+      <button class="btn btn-default"(click)="mostrarnuevatarea.is_visible = false">
+        <i class="fa fa-ban" aria-hidden="true"></i>Cancelar</button>
+  </div>
+</div>
+<div class="panel panel-default">
+  <div class="form-inline" *ngIf="agregarnuevatarea.is_visible">
+      <label>Descipcion de nueva tarea:</label>
+      <input class="form-control" type="text" placeholder="Codigo id Ej: pro-011" [(ngModel)]="nuevaTareas.descripcion">
+      <button class="btn btn-primary" (click)="agregar()">Agregar</button>
+      <button class="btn btn-default"(click)="agregarnuevatarea.is_visible = false">
+        <i class="fa fa-ban" aria-hidden="true"></i>Cancelar</button>
+  </div>
+</div>
+<div class="contenedorTareas" *ngFor="let row of listaTareas">
+  <h3>{{row.nombre}}
+    <br>
+    <button class="btn btn-success" (click)="agregartarea()">Agregar</button>
+    <button class="btn btn-success" (click)="eliminar(row)">Eliminar</button>
+  </h3>
+  <div  class="contenedorTareasdescipcion" draggable="true" (click)="mover()">{{row.descripcion}}</div>
+</div>
+<div *ngIf="listaTareas.length == 0">
+  <p class="text-center">No hay ninguna tarea</p>
+</div>

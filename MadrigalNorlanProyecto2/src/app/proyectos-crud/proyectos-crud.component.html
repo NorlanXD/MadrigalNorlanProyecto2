@@ -27,6 +27,7 @@
         <th>Numero de Personas Asociadas</th>
         <th class="text-right">
         <button class="btn btn-success" (click)="nuevo()">Nuevo</button>
+        <button class="btn btn-info" (click)="ngOnInit()"><i class="fa fa-refresh" aria-hidden="true"></i></button>
       </th>
       </tr>
       <tr *ngFor="let row of listaproyectos">
@@ -39,7 +40,7 @@
           <div *ngIf="!row.confirm">
             <button class="btn btn-warning" (click)="editar(row)"><i class="fa fa-pencil" aria-hidden="true"></i></button>
             <button class="btn btn-danger" (click)="row.confirm = true"><i class="fa fa-times" aria-hidden="true"></i></button>
-            <a class="btn btn-info" [routerLink]="['/proyectos/', row.name]">
+            <a class="btn btn-info" [routerLink]="['/proyectos/', row.nombre]">
               <i class="fa fa-eye" aria-hidden="true"></i>
             </a>
           </div>
